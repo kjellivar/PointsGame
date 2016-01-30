@@ -1,0 +1,24 @@
+{
+  "name": "PointsGame",
+  "description": "A game of ponts",
+  "main": "index.js",
+  "authors": [
+    "Kjell Ivar Storstein"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "amd"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ionic": "^1.2.4"
+  }
+}

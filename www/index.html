@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Points game</title>
+
+    <link href="lib/ionic/release/css/ionic.css" rel="stylesheet">
+    <link href="dist/app.css" rel="stylesheet">
+    <script src="lib/ionic/release/js/ionic.bundle.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+     <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="dist/app.js"></script>
+</head>
+<body ng-app="PointsGame">
+<ion-view>
+<ion-side-menus>
+
+    <ion-side-menu-content ng-controller="MainCtrl as mainCtrl">
+        <ion-header-bar>
+            <h1 class="title">Points Game</h1>
+        </ion-header-bar>
+
+        <ion-content >
+            Here's the content for this page {{mainCtrl.hei}}
+
+            <points-game-item points="50" bonus="200" every="3">A</points-game-item>
+            <points-game-item points="30" bonus="90" every="2">B</points-game-item>
+            <points-game-item points="20">C</points-game-item>
+            <points-game-item points="15">D</points-game-item>
+        </ion-content>
+    </ion-side-menu-content>
+
+
+    <ion-side-menu side="right" expose-aside-when="large" ng-controller="SideCtrl as sideCtrl">
+        <ion-header-bar>
+            <h2 class="title">Player items</h2>
+        </ion-header-bar>
+
+        <ion-content>
+            shizzel {{sideCtrl.hei}}
+        </ion-content>
+
+        <ion-footer-bar align-title="left" class="bar-light bar-subfooter">
+            <h3 class="title">Bonus</h3>
+        </ion-footer-bar>
+        <ion-footer-bar align-title="left" class="bar-stable">
+            <h3 class="title">Total</h3>
+            <button class="button button-positive pull-right">New game</button>
+        </ion-footer-bar>
+    </ion-side-menu>
+
+</ion-side-menus>
+</ion-view>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "PointsGame",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "default",
+    "watch"
+  ]
+}
