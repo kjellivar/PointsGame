@@ -1,1 +1,1 @@
-angular.module('PointsGame', ['ionic']);
+angular.module('PointsGame', ['ionic', 'ngAnimate']);

@@ -1,6 +1,6 @@
 {
   "name": "PointsGame",
-  "app_id": "",
+  "app_id": "67c120cd",
   "gulpStartupTasks": [
     "default",
     "watch"

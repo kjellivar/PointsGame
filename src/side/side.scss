@@ -1,0 +1,35 @@
+.item-list {
+  &.ng-enter, &.ng-leave, &.ng-move {
+    -webkit-transition:all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition:all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  &.ng-enter {
+    opacity: 0;
+    transform: translateX(6em);
+  }
+  &.ng-enter.ng-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &.ng-leave {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  &.ng-leave.ng-leave-active {
+    opacity: 0;
+    transform: translateX(6em);
+  }
+
+  &.ng-leave-stagger, &.ng-move-stagger {
+    /* this will have a 100ms delay between each successive leave animation */
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+
+    /* in case the stagger doesn't work then these two values
+     must be set to 0 to avoid an accidental CSS inheritance */
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+  }
+}

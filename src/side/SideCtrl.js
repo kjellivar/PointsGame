@@ -1,9 +1,16 @@
 (function () {
     'use strict';
 
-    function SideCtrl() {
-        var self = this;
-        self.hei = 'snidpe';
+    function SideCtrl(Points) {
+        var sideCtrl = this;
+
+        sideCtrl.newGame = function () {
+            Points.reset();
+            sideCtrl.items = Points.getItems();
+            sideCtrl.total = Points.getTotal();
+        };
+
+        sideCtrl.newGame();
     }
 
     angular.module('PointsGame')

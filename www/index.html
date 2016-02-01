@@ -15,41 +15,68 @@
     <!-- your app's js -->
     <script src="dist/app.js"></script>
 </head>
+
 <body ng-app="PointsGame">
 <ion-view>
 <ion-side-menus>
 
     <ion-side-menu-content ng-controller="MainCtrl as mainCtrl">
-        <ion-header-bar>
+        <ion-header-bar class="bar-dark">
             <h1 class="title">Points Game</h1>
         </ion-header-bar>
 
-        <ion-content >
-            Here's the content for this page {{mainCtrl.hei}}
-
-            <points-game-item points="50" bonus="200" every="3">A</points-game-item>
-            <points-game-item points="30" bonus="90" every="2">B</points-game-item>
-            <points-game-item points="20">C</points-game-item>
-            <points-game-item points="15">D</points-game-item>
+        <ion-content class="stable-bg" scroll="false">
+            <div class="row">
+                <points-game-item points="50" bonus="200" every="3" value="A"></points-game-item>
+                <points-game-item points="30" bonus="90" every="2" value="B"></points-game-item>
+                <points-game-item points="20" value="C"></points-game-item>
+            </div>
+            <div class="row">
+                <points-game-item points="15" value="D"></points-game-item>
+                <points-game-item points="10" value="E"></points-game-item>
+            </div>
         </ion-content>
     </ion-side-menu-content>
 
 
     <ion-side-menu side="right" expose-aside-when="large" ng-controller="SideCtrl as sideCtrl">
-        <ion-header-bar>
+        <ion-header-bar class="bar-dark">
             <h2 class="title">Player items</h2>
         </ion-header-bar>
 
         <ion-content>
-            shizzel {{sideCtrl.hei}}
+            <ul class="list">
+                <li class="item item-divider">
+                    <div class="row">
+                        <div class="col">
+                            Item
+                        </div>
+                        <div class="col">
+                            Qty
+                        </div>
+                        <div class="col">
+                            Score
+                        </div>
+                    </div>
+                </li>
+                <li ng-repeat="(key, item) in sideCtrl.items | orderBy:&apos;item.scored&apos;" class="item item-list">
+                    <div class="row">
+                        <div class="col">{{key}}</div>
+                        <div class="col">{{item.quantity}}</div>
+                        <div class="col">{{item.scored}}</div>
+                    </div>
+                </li>
+            </ul>
         </ion-content>
 
         <ion-footer-bar align-title="left" class="bar-light bar-subfooter">
-            <h3 class="title">Bonus</h3>
+            <h3 class="title">Bonus: {{sideCtrl.total.bonus}}</h3>
         </ion-footer-bar>
         <ion-footer-bar align-title="left" class="bar-stable">
-            <h3 class="title">Total</h3>
-            <button class="button button-positive pull-right">New game</button>
+            <h3 class="title">Total: {{sideCtrl.total.score}}</h3>
+            <button class="button button-positive pull-right" ng-click="sideCtrl.newGame()">
+                New game
+            </button>
         </ion-footer-bar>
     </ion-side-menu>
 

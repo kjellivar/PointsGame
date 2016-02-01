@@ -2,8 +2,8 @@
     'use strict';
 
     function MainCtrl() {
-        var self = this;
-        self.hei = 'Wolla';
+        var mainCtrl = this;
+
     }
 
     angular.module('PointsGame')
