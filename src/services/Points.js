@@ -19,12 +19,10 @@
 
             var item = items[key];
             item.increaseQuantity();
-
+            total.score += item.points;
             if(item.shouldGetBonus()){
                 total.score += item.bonus;
                 total.bonus += item.bonus;
-            } else {
-                total.score += item.points;
             }
 
         };
@@ -52,11 +50,13 @@
         this.quantity = 0;
         this.bonusCounter = 0;
         this.scored = 0;
+        if(this.bonus){
+            this.bonus = this.bonus - (this.points * this.every);
+        }
     }
 
     Item.prototype.shouldGetBonus = function(){
         if(!this.bonus){
-            this.scored += this.points;
             return false;
         }
 
@@ -67,13 +67,12 @@
             return true;
         }
 
-        this.scored += this.points;
-
         return false;
     };
 
     Item.prototype.increaseQuantity = function () {
         this.quantity = this.quantity + 1;
+        this.scored += this.points;
     };
 
     angular.module('PointsGame')

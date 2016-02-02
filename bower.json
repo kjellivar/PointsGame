@@ -19,6 +19,7 @@
     "tests"
   ],
   "dependencies": {
-    "ionic": "^1.2.4"
+    "ionic": "^1.2.4",
+    "angular-mocks": "^1.4.9"
   }
 }

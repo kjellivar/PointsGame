@@ -1,10 +1,10 @@
 {
   "name": "PointsGame",
   "version": "1.0.0",
-  "description": "A game of ponts",
-  "main": "index.js",
+  "description": "A game of points",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start",
+    "postinstall": "ionic state reset && bower install && gulp"
   },
   "author": "Kjell Ivar Storstein",
   "license": "ISC",
@@ -18,5 +18,14 @@
     "gulp-sass": "^2.1.1",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "karma": "^0.13.19",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.1",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.3"
   }
 }

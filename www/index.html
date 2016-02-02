@@ -18,7 +18,7 @@
 
 <body ng-app="PointsGame">
 <ion-view>
-<ion-side-menus>
+<ion-side-menus ng-cloak="">
 
     <ion-side-menu-content ng-controller="MainCtrl as mainCtrl">
         <ion-header-bar class="bar-dark">
@@ -44,7 +44,7 @@
             <h2 class="title">Player items</h2>
         </ion-header-bar>
 
-        <ion-content>
+        <ion-content class="stable-bg has-subfooter">
             <ul class="list">
                 <li class="item item-divider">
                     <div class="row">
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </li>
-                <li ng-repeat="(key, item) in sideCtrl.items | orderBy:&apos;item.scored&apos;" class="item item-list">
+                <li ng-repeat="(key, item) in sideCtrl.items" class="item item-list">
                     <div class="row">
                         <div class="col">{{key}}</div>
                         <div class="col">{{item.quantity}}</div>
